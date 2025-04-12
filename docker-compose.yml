@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  db:
+    image: supabase/postgres:15.8.1.020
+    container_name: supabase-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  rest:
+    image: postgrest/postgrest:v12.2.0
+    container_name: supabase-rest
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3001:3000"
+    restart: unless-stopped
+    environment:
+      PGRST_DB_URI: postgres://postgres:postgres@db:5432/postgres
+      PGRST_DB_SCHEMAS: public
+      PGRST_DB_ANON_ROLE: anon
+      PGRST_JWT_SECRET: ${JWT_SECRET}

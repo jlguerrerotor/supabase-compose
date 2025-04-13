@@ -1,9 +1,6 @@
-version: '3.9'
-
 services:
   db:
     image: supabase/postgres:15.8.1.020
-    container_name: supabase-db
     restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: postgres
@@ -15,7 +12,6 @@ services:
 
   rest:
     image: postgrest/postgrest:v12.2.0
-    container_name: supabase-rest
     depends_on:
       db:
         condition: service_healthy

@@ -2,6 +2,8 @@ services:
   db:
     image: supabase/postgres:15.8.1.020
     restart: unless-stopped
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_PASSWORD: postgres
     healthcheck:

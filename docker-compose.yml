@@ -21,7 +21,7 @@ services:
       - "3001:3000"
     restart: unless-stopped
     environment:
-      PGRST_DB_URI: postgres://postgres:postgres@db:5432/postgres
+      PGRST_DB_URI: postgres://postgres:postgres@db:5432/N8n%20Project
       PGRST_DB_SCHEMAS: public
       PGRST_DB_ANON_ROLE: anon
 

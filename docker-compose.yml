@@ -22,4 +22,6 @@ services:
       PGRST_DB_URI: postgres://postgres:postgres@db:5432/postgres
       PGRST_DB_SCHEMAS: public
       PGRST_DB_ANON_ROLE: anon
-      PGRST_JWT_SECRET: ${JWT_SECRET}
+      # PGRST_JWT_SECRET: ${JWT_SECRET}
+      PGRST_JWT_SECRET: d01f67f77b8d6e608e6ea5aedafbe3b58b2b3207a43e09db409cf4f73e4372cdc588111d6692162f3b559a033487fd4b4cd060aeef48716d4a8c19f298cf6a42
+
